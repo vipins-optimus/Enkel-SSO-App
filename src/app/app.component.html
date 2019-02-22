@@ -1,0 +1,28 @@
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <a class="navbar-brand" [routerLink]="['/productivity-apps']"><img
+            src="https://www.enkel.ca/wp-content/uploads/2017/08/logo_md-1.png"
+            class="img-responsive enkel-navbar-logo"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+        aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mr-auto" *ngIf="isAuthenticated">
+            <li class="nav-item active">
+                <a class="nav-link" [routerLink]="['/productivity-apps']">Productivity Apps</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/clients']">Clients</a>
+            </li>
+        </ul>
+            <span class="nav-welcome-text" *ngIf="isAuthenticated">Welcome Vipin</span>
+            <i class="fa fa-sign-out" aria-hidden="true" data-toggle="tooltip" title="Logout" *ngIf="isAuthenticated"
+                (click)="logout()"></i>
+    </div>
+</nav>
+
+<div class="navbar-bottom-gap"></div>
+
+<div class="container main-container">
+    <router-outlet></router-outlet>
+</div>

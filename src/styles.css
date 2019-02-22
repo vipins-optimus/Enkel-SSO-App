@@ -1,0 +1,60 @@
+/* You can add global styles to this file, and also import other style files */
+
+.main-container {
+    padding-top: 34px;
+    margin-top: -14px;
+}
+
+.navbar-bottom-gap {
+    margin-top: 70px;
+}
+
+body {
+    background: #eee;
+}
+
+span {
+    font-size:15px;
+}
+
+.box {
+    padding:17px 0px;
+}
+
+.box-part {
+    background:#FFF;
+    border-radius:0;
+    padding:40px 10px;
+    margin:0px 0px 27px;
+    cursor: pointer;
+}
+
+.text {
+    margin:20px 0px;
+}
+
+.fa {
+     color:#4183D7;
+}
+
+.breadcrumb-align {
+    padding: 8px 12px;
+    /* background: #fff; */
+    background-color: none !important;
+}
+
+.enkel-navbar-logo {
+    height: 20px;
+    margin-top: -5px;
+}
+
+.fa-sign-out {
+    color: #fff;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.nav-welcome-text {
+    color: #fff;
+    margin-right: 27px;
+}
