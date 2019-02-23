@@ -55,6 +55,15 @@ span {
 }
 
 .nav-welcome-text {
-    color: #fff;
+    color: #FAB31C;
     margin-right: 27px;
+}
+
+.router-active {
+    border-bottom: 3px solid #FAB31C;
+    margin-bottom: -8px;
+}
+
+.nav-font-color {
+    color: #fff !important;
 }

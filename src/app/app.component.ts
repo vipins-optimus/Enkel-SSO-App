@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { OktaAuthService } from '@okta/okta-angular';
+import { OktaAuthService, UserClaims } from '@okta/okta-angular';
 import { Router } from '@angular/router';
 
 declare var $: any;
@@ -11,6 +11,8 @@ declare var $: any;
 export class AppComponent {
     title = 'Enkel-SSO-App';
     isAuthenticated: boolean;
+    oktaUserInfo: UserClaims;
+
     constructor(public oktaAuth: OktaAuthService, private router: Router) {
         this.oktaAuth.$authenticationState.subscribe(isAuthenticated => this.isAuthenticated = isAuthenticated)
         $(document).ready(function(){
@@ -19,7 +21,9 @@ export class AppComponent {
     }
     async ngOnInit() {
         this.isAuthenticated = await this.oktaAuth.isAuthenticated();
+        this.oktaUserInfo  =  await this.oktaAuth.getUser();
     }
+
     logout() {
         this.oktaAuth.logout('/login');
     }
