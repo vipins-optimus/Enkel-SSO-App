@@ -3,7 +3,7 @@
     "version": 1,
     "newProjectRoot": "projects",
     "projects": {
-        "Enkel-SOS-App": {
+        "Enkel-SSO-App": {
             "root": "",
             "sourceRoot": "src",
             "projectType": "application",
@@ -13,7 +13,7 @@
                 "build": {
                     "builder": "@angular-devkit/build-angular:browser",
                     "options": {
-                        "outputPath": "dist/Enkel-SOS-App",
+                        "outputPath": "dist/Enkel-SSO-App",
                         "index": "src/index.html",
                         "main": "src/main.ts",
                         "polyfills": "src/polyfills.ts",
@@ -60,18 +60,18 @@
                 "serve": {
                     "builder": "@angular-devkit/build-angular:dev-server",
                     "options": {
-                        "browserTarget": "Enkel-SOS-App:build"
+                        "browserTarget": "Enkel-SSO-App:build"
                     },
                     "configurations": {
                         "production": {
-                            "browserTarget": "Enkel-SOS-App:build:production"
+                            "browserTarget": "Enkel-SSO-App:build:production"
                         }
                     }
                 },
                 "extract-i18n": {
                     "builder": "@angular-devkit/build-angular:extract-i18n",
                     "options": {
-                        "browserTarget": "Enkel-SOS-App:build"
+                        "browserTarget": "Enkel-SSO-App:build"
                     }
                 },
                 "test": {
@@ -105,7 +105,7 @@
                 }
             }
         },
-        "Enkel-SOS-App-e2e": {
+        "Enkel-SSO-App-e2e": {
             "root": "e2e/",
             "projectType": "application",
             "prefix": "",
@@ -114,11 +114,11 @@
                     "builder": "@angular-devkit/build-angular:protractor",
                     "options": {
                         "protractorConfig": "e2e/protractor.conf.js",
-                        "devServerTarget": "Enkel-SOS-App:serve"
+                        "devServerTarget": "Enkel-SSO-App:serve"
                     },
                     "configurations": {
                         "production": {
-                            "devServerTarget": "Enkel-SOS-App:serve:production"
+                            "devServerTarget": "Enkel-SSO-App:serve:production"
                         }
                     }
                 },
@@ -134,5 +134,5 @@
             }
         }
     },
-    "defaultProject": "Enkel-SOS-App"
+    "defaultProject": "Enkel-SSO-App"
 }
