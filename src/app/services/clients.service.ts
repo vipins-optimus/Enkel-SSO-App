@@ -13,9 +13,9 @@ const httpOptions = {
     providedIn: 'root'
 })
 export class ClientsService {
-    
+
     constructor(private oktaAuth: OktaAuthService,
-        private httpClient: HttpClient) {
+                private httpClient: HttpClient) {
     }
 
     getClients(oktaUserEmail) {

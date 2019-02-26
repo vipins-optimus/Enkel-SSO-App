@@ -67,3 +67,8 @@ span {
 .nav-font-color {
     color: #fff !important;
 }
+
+.text-no-match-found {
+    margin-top: 9rem;
+    color: #888;
+}

@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, OnInit } from '@angular/core';
 import { OktaAuthService } from '@okta/okta-angular';
 import { ActivatedRoute } from '@angular/router';
 
@@ -10,12 +10,12 @@ import { ProductivityAppsModel } from '../models/productivity-apps.model';
     selector: 'app-clients-detail',
     templateUrl: 'clients-detail.component.html'
 })
-export class ClientsDetailComponent {
+export class ClientsDetailComponent implements OnInit {
     productivityApps: ProductivityAppsModel[] = [];
-    
+
     constructor(private activatedRoute: ActivatedRoute,
-        private oktaAuth: OktaAuthService,
-        private productivityAppsService: ProductivityAppsService) {
+                private oktaAuth: OktaAuthService,
+                private productivityAppsService: ProductivityAppsService) {
     }
 
     ngOnInit() {

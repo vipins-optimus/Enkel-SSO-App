@@ -11,6 +11,7 @@ import { UserModule } from './user/user.module';
 import { ClientsModule } from './clients/clients.module';
 import { PageNotFoundComponent } from './page-not-found.component';
 import sampleConfig from './.samples.config';
+import { SharedModule } from './shared/shared.module';
 
 const oktaConfig = Object.assign({
     onAuthRequired: ({ oktaAuth, router }) => {
@@ -27,6 +28,7 @@ const oktaConfig = Object.assign({
         ProductivityAppsModule,
         ClientsModule,
         UserModule,
+        SharedModule,
         AppRoutingModule
     ],
     declarations: [
