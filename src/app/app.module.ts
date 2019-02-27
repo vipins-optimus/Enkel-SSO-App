@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 
 import { OktaAuthModule, OktaAuthService, OktaAuthGuard, OKTA_CONFIG } from '@okta/okta-angular';
@@ -12,6 +13,7 @@ import { ClientsModule } from './clients/clients.module';
 import { PageNotFoundComponent } from './page-not-found.component';
 import sampleConfig from './.samples.config';
 import { SharedModule } from './shared/shared.module';
+import { AuthHttpInterceptor } from './auth-http-interceptor';
 
 const oktaConfig = Object.assign({
     onAuthRequired: ({ oktaAuth, router }) => {
@@ -42,6 +44,11 @@ const oktaConfig = Object.assign({
         },
         OktaAuthService,
         OktaAuthGuard,
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: AuthHttpInterceptor,
+            multi: true
+        }
     ],
     bootstrap: [AppComponent]
 })

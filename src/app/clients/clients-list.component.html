@@ -1,14 +1,19 @@
 <div class="container">
     <div class="row">
-        <div class="col-sm-6">
+        <div class="col-sm-8">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb breadcrumb-align">
                     <li class="breadcrumb-item active" aria-current="page">Clients</li>
                 </ol>
             </nav>
         </div>
-        <div class="col-sm-6">
-            <input type="search" id="search" value="" class="form-control" [(ngModel)]="search" placeholder="Search Clients...">
+        <div class="col-sm-4">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fa fa-search" aria-hidden="true"></i></span>
+                </div>
+                <input type="text"id="search" value="" class="form-control" [(ngModel)]="search" placeholder="Search Clients ...">
+            </div>
         </div>
     </div>
 </div>
@@ -22,13 +27,8 @@
 <div class="box">
     <div class="container">
         <div class="row">
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12" *ngFor="let client of clients| searchFilter:search:'Name'; let rowIndex = index">
-                <div class="box-part text-center" (click)="clientDetail(client.Id)">
-                    <i class="fa fa-instagram fa-3x" aria-hidden="true"></i>
-                    <div class="title">
-                        <h4>{{ client.Name }}</h4>
-                    </div>
-                </div>
+            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12" *ngFor="let client of clients| searchFilter:search:'Name'; let rowIndex = index">
+                <img [src]="client.Logo" class="img-fluid img-hw-responsive" (click)="clientDetail(client.Id)" style="cursor:pointer">
             </div>
         </div>
     </div>

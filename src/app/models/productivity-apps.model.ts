@@ -1,5 +1,5 @@
 export class ProductivityAppsModel {
     Id: number;
-	Name: string;
+    Name: string;
     URL: string;
 }

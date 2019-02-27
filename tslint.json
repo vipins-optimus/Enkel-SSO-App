@@ -52,7 +52,7 @@
     "no-var-requires": false,
     "object-literal-key-quotes": [
       true,
-      "as-needed"
+      "consistent"
     ],
     "object-literal-sort-keys": false,
     "ordered-imports": false,
@@ -60,7 +60,15 @@
       true,
       "single"
     ],
-    "trailing-comma": false,
+    "comment-format": [
+      true,
+      "check-space"
+    ],
+    "indent": [
+      true,
+      "spaces"
+    ],
+    "trailing-comma": true,
     "no-output-on-prefix": true,
     "use-input-property-decorator": true,
     "use-output-property-decorator": true,

@@ -1,4 +1,5 @@
 // export default {
+//     apiUrl: 'http://172.16.2.27:1500/application/',
 //     oidc: {
 //         clientId: '0oajf4fmekXu3wfGZ0h7',
 //         issuer: 'https://dev-987362.oktapreview.com/oauth2/default',
@@ -12,6 +13,8 @@
 
 
 export default {
+    // apiUrl: 'http://172.16.2.27:49929/application/',
+    apiUrl: 'http://172.16.2.27:1500/application/',
     oidc: {
         clientId: '0oajf4fmekXu3wfGZ0h7',
         issuer: 'https://dev-987362.oktapreview.com/oauth2/default',
