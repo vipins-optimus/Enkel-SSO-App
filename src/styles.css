@@ -1,12 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
 
-.main-container {
-    padding-top: 34px;
-    margin-top: -14px;
+@media (max-width: 768px) { 
+    .input-box-column {
+        margin-bottom: 1rem;
+    }
 }
 
 .navbar-bottom-gap {
-    margin-top: 70px;
+    margin-top: 4.5rem;
 }
 
 body {
@@ -141,9 +142,64 @@ span {
 }
 
 .img-hw-responsive {
-    /* max-height: 100%;
-    min-height: 100%; */
-    height: 200px;
-    width: 200px;
-    background: #fff;
+    max-height: 180px;
+    min-width: 100%;
+    /* background: #fff; */
 } 
+
+.align-self-center {
+    align-self: center;
+}
+
+.breadcrumb {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    padding: 0.46rem 1rem;
+    margin-bottom: 1rem;
+    list-style: none;
+    background-color: #fff;
+    border-radius: .25rem;
+    margin-top: 16px !important;
+}
+
+.shadow {
+    box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0.2), 0 0px 15px 0 rgba(0, 0, 0, 0.10) !important;
+}
+
+.background-white {
+    background: #fff;
+}
+
+.img-gallery {
+    padding: 1rem 0px 1rem;
+}
+
+.gallery-container {
+    margin-top: 1rem;
+}
+
+.card {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 100%;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+    padding: 1rem
+}
+
+.card-image {
+    height: 100px;
+    width: 100px;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}

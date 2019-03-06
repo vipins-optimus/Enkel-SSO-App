@@ -1,26 +1,24 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef, ElementRef, ViewChild, AfterContentInit } from '@angular/core';
 import { OktaAuthService, UserClaims } from '@okta/okta-angular';
-import { Router } from '@angular/router';
 
 import { LoaderService } from './shared/loader-service';
 import { CompCommunicationService } from './shared/comp-communication.service';
-
-declare var $: any;
 
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html'
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, AfterContentInit {
     title = 'Enkel-SSO-App';
     isAuthenticated = true;
     showLoader: boolean;
     oktaUserInfo: UserClaims;
+    @ViewChild('myDiv') myDiv: ElementRef;
 
     constructor(public oktaAuth: OktaAuthService,
-                private router: Router,
                 private loaderService: LoaderService,
-                public compCommunicationService: CompCommunicationService) {
+                public compCommunicationService: CompCommunicationService,
+                private changeDetectorRef: ChangeDetectorRef) {
         this.oktaAuth.$authenticationState.subscribe(isAuthenticated =>  {
             this.isAuthenticated = isAuthenticated;
         });
@@ -29,7 +27,13 @@ export class AppComponent implements OnInit {
     ngOnInit() {
         this.loaderService.status.subscribe(val => {
             this.showLoader = val;
+            this.changeDetectorRef.detectChanges();
         });
+    }
+
+    ngAfterContentInit() {
+        // const el: HTMLElement = this.myDiv.nativeElement as HTMLElement;
+        // el.click();
     }
 
     logout() {
@@ -38,6 +42,5 @@ export class AppComponent implements OnInit {
         localStorage.removeItem('oktaUserInfo');
         localStorage.removeItem('isAuthenticated');
         this.oktaUserInfo = JSON.parse(localStorage.getItem('oktaUserInfo'));
-        console.log(this.oktaUserInfo);
     }
 }

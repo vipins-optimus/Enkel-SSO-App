@@ -1,39 +1,40 @@
+
     <div class="container">
-        <div class="row">
-            <div class="col-sm-8">
+        <div class="row align-items-center shadow background-white">
+            <div class="col-sm-8 mx-auto">
                 <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb breadcrumb-align">
-                            <li class="breadcrumb-item"><a [routerLink]="['/clients']">Clients</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Apps</li>
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a [routerLink]="['/clients']">Clients</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Apps</li>
                     </ol>
                 </nav>
             </div>
-            <div class="col-sm-4">
-                <div class="input-group mb-3">
+            <div class="col-sm-4 input-box-column">
+                <div class="input-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fa fa-search" aria-hidden="true"></i></span>
                     </div>
-                    <input type="text"id="search" value="" class="form-control" [(ngModel)]="search" placeholder="Search Apps ...">
+                    <input type="text" id="search" value="" class="form-control" [(ngModel)]="search" placeholder="Search Apps ...">
                 </div>
             </div>
         </div>
     </div>
-    
+        
     <div class="container">
-        <div class="text-center text-no-match-found" *ngIf="(productivityApps | searchFilter : search : 'Name').length === 0 && isAppsReceivedByServer">
+        <div class="text-center text-no-match-found" *ngIf="(AppsAssignedToClient | searchFilter : search : 'Name').length === 0 && isAppsReceivedByServer">
             <h3>{{textNoMatchFound}}</h3>
         </div>
     </div>
-    
-    <div class="box">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12" *ngFor="let productivityApp of productivityApps | searchFilter:search:'Name'; let rowIndex = index">
-                    <a href="{{productivityApp.URL}}" target="_blank">
-                        <img [src]="productivityApp.Logo" class="img-fluid img-hw-responsive">
-                    </a>
-                </div>
+        
+    <div class="container gallery-container">
+        <div class="row">
+            <div class="col-sm-3" *ngFor="let AppAssignedToClient of AppsAssignedToClient | searchFilter:search:'Name'; let rowIndex = index">
+                <a  href="{{AppAssignedToClient.URL}}" target="_blank">
+                    <div class="card shadow gallery-card cursor-pointer ">
+                        <img class="card-img-top card-image align-self-center" [src]="AppAssignedToClient.Logo" alt="image">
+                    </div>
+                </a>
             </div>
         </div>
     </div>
-    
+        
