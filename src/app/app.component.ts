@@ -8,7 +8,7 @@ import { CompCommunicationService } from './shared/comp-communication.service';
     selector: 'app-root',
     templateUrl: './app.component.html'
 })
-export class AppComponent implements OnInit, AfterContentInit {
+export class AppComponent implements OnInit {
     title = 'Enkel-SSO-App';
     isAuthenticated = true;
     showLoader: boolean;
@@ -29,11 +29,6 @@ export class AppComponent implements OnInit, AfterContentInit {
             this.showLoader = val;
             this.changeDetectorRef.detectChanges();
         });
-    }
-
-    ngAfterContentInit() {
-        // const el: HTMLElement = this.myDiv.nativeElement as HTMLElement;
-        // el.click();
     }
 
     logout() {

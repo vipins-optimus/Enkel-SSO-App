@@ -30,10 +30,14 @@ export class ProductivityAppsListComponent implements OnInit {
         }
         this.productivityAppsService.getProductivityApps().subscribe((pa: ProductivityAppsModel[]) => {
             this.productivityApps = pa;
-            console.log(this.productivityApps);
+            this.productivityApps = pa;
             this.isAppsReceivedByServer = true;
         },
         error => {
         });
+    }
+
+    doSearchChange(event) {
+        this.search = event;
     }
 }

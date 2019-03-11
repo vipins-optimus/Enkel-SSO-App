@@ -38,4 +38,8 @@ export class ClientsDetailComponent implements OnInit {
         error => {
         });
     }
+
+    doSearchChange(event) {
+        this.search = event;
+    }
 }

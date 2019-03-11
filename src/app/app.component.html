@@ -25,11 +25,12 @@
 </nav>
 
 <div class="navbar-bottom-gap"></div>
-<!-- <div style="display:none;">
-    <a #myDiv href="https://dev-987362.oktapreview.com" target="_blank"></a>
-</div> -->
 <div class="main-container">
-    <router-outlet>
-        <!-- <span *ngIf="showLoader" class="loading"></span> -->
-    </router-outlet>
+    <router-outlet></router-outlet>
+</div>
+
+<div class="container h-100" *ngIf="showLoader">
+    <div class="row h-100 justify-content-center align-items-center">
+        <div id="cover-spin"></div>
+    </div>  
 </div>

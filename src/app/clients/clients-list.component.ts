@@ -37,7 +37,6 @@ export class ClientsListComponent implements OnInit {
         };
         this.clientsService.getClients(oktaUserEmail).subscribe((clients: ClientsModel[])  => {
             this.clients = clients;
-            console.log(this.clients);
             this.isClientsReceivedByServer = true;
         },
         error => {
@@ -46,5 +45,9 @@ export class ClientsListComponent implements OnInit {
 
     clientDetail(clientId: number): void {
         this.router.navigate(['clients', clientId]);
+    }
+
+    doSearchChange(event) {
+        this.search = event;
     }
 }
