@@ -12,7 +12,7 @@
 
 <div class="container gallery-container">
 	<div class="row">
-		<div class="col-sm-3" *ngFor="let client of clients | searchFilter:search:'Name'; let rowIndex = index">
+		<div class="col-sm-3 column-class" *ngFor="let client of clients | searchFilter:search:'Name'; let rowIndex = index">
 			<div class="card shadow gallery-card cursor-pointer" (click)="clientDetail(client.Id)">
 				<a class="align-self-center">
 					<img class="card-img-top card-image" [src]="client.Logo" alt="image">
