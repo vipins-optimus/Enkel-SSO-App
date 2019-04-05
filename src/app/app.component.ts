@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectorRef, ElementRef, ViewChild, AfterContentInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef, ElementRef, ViewChild } from '@angular/core';
 import { OktaAuthService, UserClaims } from '@okta/okta-angular';
 
 import { LoaderService } from './shared/loader-service';
