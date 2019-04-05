@@ -231,3 +231,7 @@ span {
     -webkit-animation: spin .8s linear infinite;
     animation: spin .8s linear infinite;
 }
+
+.column-class {
+    margin-bottom: 27px;
+}

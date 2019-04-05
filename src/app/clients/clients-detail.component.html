@@ -12,7 +12,7 @@
     
 <div class="container gallery-container">
     <div class="row">
-        <div class="col-sm-3" *ngFor="let AppAssignedToClient of AppsAssignedToClient | searchFilter:search:'Name'; let rowIndex = index">
+        <div class="col-sm-3 column-class" *ngFor="let AppAssignedToClient of AppsAssignedToClient | searchFilter:search:'Name'; let rowIndex = index">
             <a  href="{{AppAssignedToClient.URL}}" target="_blank">
                 <div class="card shadow gallery-card cursor-pointer ">
                     <img class="card-img-top card-image align-self-center" [src]="AppAssignedToClient.Logo" alt="image">
