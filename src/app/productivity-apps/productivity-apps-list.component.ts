@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { OktaAuthService } from '@okta/okta-angular';
 
 import { ProductivityAppsService } from '../services/productivity-apps.service';
 import { CompCommunicationService } from '../shared/comp-communication.service';
@@ -30,14 +29,16 @@ export class ProductivityAppsListComponent implements OnInit {
         }
         this.productivityAppsService.getProductivityApps().subscribe((pa: ProductivityAppsModel[]) => {
             this.productivityApps = pa;
-            this.productivityApps = pa;
             this.isAppsReceivedByServer = true;
-        },
-        error => {
+            this.compCommunicationService.doSorting(0, this.productivityApps);
         });
     }
 
-    doSearchChange(event) {
+    doSearch(event: string) {
         this.search = event;
+    }
+
+    doSorting(sortBy: number) {
+        this.compCommunicationService.doSorting(sortBy, this.productivityApps);
     }
 }
