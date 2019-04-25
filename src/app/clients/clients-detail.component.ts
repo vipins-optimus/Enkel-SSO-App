@@ -34,12 +34,15 @@ export class ClientsDetailComponent implements OnInit {
         this.productivityAppsService.getProductivityAppsByClientId(clientId).subscribe((pa: ProductivityAppsModel[])  => {
             this.AppsAssignedToClient = pa;
             this.isAppsReceivedByServer = true;
-        },
-        error => {
+            this.compCommunicationService.doSorting(0, this.AppsAssignedToClient);
         });
     }
 
-    doSearchChange(event) {
+    doSearch(event: string) {
         this.search = event;
+    }
+
+    doSorting(sortBy: number) {
+        this.compCommunicationService.doSorting(sortBy, this.AppsAssignedToClient);
     }
 }

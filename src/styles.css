@@ -38,12 +38,6 @@ span {
      color:#4183D7;
 }
 
-.breadcrumb-align {
-    padding: 8px 12px;
-    /* background: #fff; */
-    background-color: none !important;
-}
-
 .enkel-navbar-logo {
     height: 20px;
     margin-top: -5px;
@@ -235,3 +229,16 @@ span {
 .column-class {
     margin-bottom: 27px;
 }
+
+.img-name {
+    margin: 7px auto 0;
+    color: #6c757d;
+    font-size: 13px;
+    line-height: 16px;
+    max-height: 30px;
+}
+
+input#search::placeholder {
+    color: #bbb;
+}
+

@@ -1,23 +1,29 @@
 <app-search-container 
     [breadcrumb]="'Clients > Apps'" 
-    (doSearchChange)="doSearchChange($event)"
-    [placeholder]="'Search Apps'">
+    (doSearch)="doSearch($event)"
+    [placeholder]="'Search Apps'"
+    (doSorting)="doSorting($event)">
 </app-search-container>
         
 <div class="container">
-    <div class="text-center text-no-match-found" *ngIf="(AppsAssignedToClient | searchFilter : search : 'Name').length === 0 && isAppsReceivedByServer">
+    <div class="text-center text-no-match-found" 
+        *ngIf="(AppsAssignedToClient | searchFilter : search : 'Name').length === 0 && isAppsReceivedByServer">
         <h3>{{textNoMatchFound}}</h3>
     </div>
 </div>
     
 <div class="container gallery-container">
     <div class="row">
-        <div class="col-sm-3 column-class" *ngFor="let AppAssignedToClient of AppsAssignedToClient | searchFilter:search:'Name'; let rowIndex = index">
-            <a  href="{{AppAssignedToClient.URL}}" target="_blank">
+        <div class="col-sm-4 col-md-3 col-lg-2 column-class" 
+            *ngFor="let appAssignedToClient of AppsAssignedToClient | searchFilter:search:'Name'; let rowIndex = index">
+            <a  href="{{appAssignedToClient.URL}}" target="_blank">
                 <div class="card shadow gallery-card cursor-pointer ">
-                    <img class="card-img-top card-image align-self-center" [src]="AppAssignedToClient.Logo" alt="image">
+                    <img class="card-img-top card-image align-self-center" 
+                        [src]="appAssignedToClient.Logo" 
+                        alt="image">
                 </div>
             </a>
+            <p class="img-name text-center">{{ appAssignedToClient.Name }}</p>
         </div>
     </div>
 </div>

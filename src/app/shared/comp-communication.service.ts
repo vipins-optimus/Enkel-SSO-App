@@ -9,7 +9,6 @@ export class CompCommunicationService {
     isAuthenticated = false;
 
     constructor(private oktaAuth: OktaAuthService) {
-
     }
 
     async getLoggedInUserDetails() {
@@ -26,5 +25,17 @@ export class CompCommunicationService {
     setOktaUserInfoAsTrue() {
         this.isAuthenticated = true;
         this.oktaUserInfo = JSON.parse(localStorage.getItem('oktaUserInfo'));
+    }
+
+    doSorting(sortBy: number, list: any) {
+        if (sortBy === 0) {
+            list = list.sort((a, b) => {
+                return a.Name.toLowerCase() > b.Name.toLowerCase() ? 1 : -1;
+            });
+        } else {
+            list = list.sort((a, b) => {
+                return a.Name.toLowerCase() > b.Name.toLowerCase() ? -1 : 1;
+            });
+        }
     }
 }

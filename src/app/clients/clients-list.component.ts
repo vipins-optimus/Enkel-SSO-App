@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { OktaAuthService, UserClaims } from '@okta/okta-angular';
 import { Router } from '@angular/router';
 
 import { ClientsService } from '../services/clients.service';
@@ -19,8 +18,7 @@ export class ClientsListComponent implements OnInit {
     clients: ClientsModel[] = [];
     textNoMatchFound = MessageConstants.TextNoMatchFound;
 
-    constructor(private oktaAuth: OktaAuthService,
-                private clientsService: ClientsService,
+    constructor(private clientsService: ClientsService,
                 private compCommunicationService: CompCommunicationService,
                 private router: Router) {
     }
@@ -38,8 +36,7 @@ export class ClientsListComponent implements OnInit {
         this.clientsService.getClients(oktaUserEmail).subscribe((clients: ClientsModel[])  => {
             this.clients = clients;
             this.isClientsReceivedByServer = true;
-        },
-        error => {
+            this.compCommunicationService.doSorting(0, this.clients);
         });
     }
 
@@ -47,7 +44,11 @@ export class ClientsListComponent implements OnInit {
         this.router.navigate(['clients', clientId]);
     }
 
-    doSearchChange(event) {
+    doSearch(event: string) {
         this.search = event;
+    }
+
+    doSorting(sortBy: number) {
+        this.compCommunicationService.doSorting(sortBy, this.clients);
     }
 }
