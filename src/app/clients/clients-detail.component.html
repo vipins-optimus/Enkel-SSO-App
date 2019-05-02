@@ -7,24 +7,24 @@
         
 <div class="container">
     <div class="text-center text-no-match-found" 
-        *ngIf="(AppsAssignedToClient | searchFilter : search : 'Name').length === 0 && isAppsReceivedByServer">
+        *ngIf="(appsAssignedToClient | searchFilter : search : 'Name').length === 0 && isAppsReceivedByServer">
         <h3>{{textNoMatchFound}}</h3>
     </div>
 </div>
-    
-<div class="container gallery-container">
-    <div class="row">
-        <div class="col-sm-4 col-md-3 col-lg-2 column-class" 
-            *ngFor="let appAssignedToClient of AppsAssignedToClient | searchFilter:search:'Name'; let rowIndex = index">
-            <a  href="{{appAssignedToClient.URL}}" target="_blank">
-                <div class="card shadow gallery-card cursor-pointer ">
-                    <img class="card-img-top card-image align-self-center" 
+
+<div class="container">
+    <div class="row d-flex flex-row">
+        <div class="card card-1" *ngFor="let appAssignedToClient of appsAssignedToClient | searchFilter:search:'Name'; let rowIndex = index">
+            <a href="{{appAssignedToClient.URL}}" target="_blank" class="img-anchor">
+                <div class="gallery-card">
+                    <img 
+                        class="card-img-top card-image align-self-center" 
                         [src]="appAssignedToClient.Logo" 
                         alt="image">
                 </div>
+                <p class="img-name text-center">{{ appAssignedToClient.Name }}</p>
             </a>
-            <p class="img-name text-center">{{ appAssignedToClient.Name }}</p>
-        </div>
+        </div> 
     </div>
 </div>
         

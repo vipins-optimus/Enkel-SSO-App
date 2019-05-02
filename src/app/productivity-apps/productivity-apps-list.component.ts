@@ -27,11 +27,12 @@ export class ProductivityAppsListComponent implements OnInit {
         } else {
             this.compCommunicationService.setOktaUserInfoAsTrue();
         }
-        this.productivityAppsService.getProductivityApps().subscribe((pa: ProductivityAppsModel[]) => {
-            this.productivityApps = pa;
-            this.isAppsReceivedByServer = true;
-            this.compCommunicationService.doSorting(0, this.productivityApps);
-        });
+        this.productivityAppsService.getProductivityApps()
+            .subscribe((pa: ProductivityAppsModel[]) => {
+                this.productivityApps = pa;
+                this.isAppsReceivedByServer = true;
+                this.compCommunicationService.doSorting(0, this.productivityApps);
+            });
     }
 
     doSearch(event: string) {

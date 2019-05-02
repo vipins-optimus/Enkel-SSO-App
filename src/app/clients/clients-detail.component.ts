@@ -13,7 +13,7 @@ import { MessageConstants } from '../shared/message-constants';
     templateUrl: 'clients-detail.component.html'
 })
 export class ClientsDetailComponent implements OnInit {
-    AppsAssignedToClient: ProductivityAppsModel[] = [];
+    appsAssignedToClient: ProductivityAppsModel[] = [];
     textNoMatchFound = MessageConstants.TextNoMatchFound;
     isAppsReceivedByServer = false;
     search: string;
@@ -32,9 +32,9 @@ export class ClientsDetailComponent implements OnInit {
         }
         const clientId = this.activatedRoute.snapshot.params['clientId'];
         this.productivityAppsService.getProductivityAppsByClientId(clientId).subscribe((pa: ProductivityAppsModel[])  => {
-            this.AppsAssignedToClient = pa;
+            this.appsAssignedToClient = pa;
             this.isAppsReceivedByServer = true;
-            this.compCommunicationService.doSorting(0, this.AppsAssignedToClient);
+            this.compCommunicationService.doSorting(0, this.appsAssignedToClient);
         });
     }
 
@@ -43,6 +43,6 @@ export class ClientsDetailComponent implements OnInit {
     }
 
     doSorting(sortBy: number) {
-        this.compCommunicationService.doSorting(sortBy, this.AppsAssignedToClient);
+        this.compCommunicationService.doSorting(sortBy, this.appsAssignedToClient);
     }
 }

@@ -1,7 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 
-import { CompCommunicationService } from '../comp-communication.service';
-
 @Component({
     selector: 'app-search-container',
     templateUrl: 'search-container.component.html'
@@ -18,7 +16,7 @@ export class SearchContainerComponent {
         { id: 1, name: 'Name (z-a)' }
     ];
 
-    constructor(private compCommunicationService: CompCommunicationService) {
+    constructor() {
     }
 
     onSearch() {
