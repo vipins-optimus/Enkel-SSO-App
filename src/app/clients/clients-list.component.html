@@ -13,7 +13,7 @@
 
 <div class="container">
     <div class="row d-flex flex-row">
-        <div class="card card-1" *ngFor="let client of clients | searchFilter:search:'Name'; let rowIndex = index" (click)="clientDetail(client.Id)">
+        <div class="card card-1" *ngFor="let client of clients | searchFilter:search:'Name'; let rowIndex = index" (click)="clientDetail(client.ClientId)">
 			<div class="gallery-card">
 				<img 
 					class="card-img-top card-image align-self-center" 

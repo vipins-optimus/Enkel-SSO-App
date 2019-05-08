@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -10,6 +10,7 @@ export class ClientsService {
     }
 
     getClients(oktaUserEmail) {
-        return this.httpClient.post('GetClients', oktaUserEmail);
+        const  params = new  HttpParams().set('userEmail', 'vipin.sharma@optimusinfo.com');
+        return this.httpClient.get('GetClients', { params } );
     }
 }

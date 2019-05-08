@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -7,13 +7,15 @@ import { Injectable } from '@angular/core';
 export class ProductivityAppsService {
     constructor(private httpClient: HttpClient) { }
 
+
     getProductivityApps() {
-        const x = { clientId: 1 };
-        return this.httpClient.post('GetApplications', x);
+        // const clientId = { clientId: 100 };
+        const  params = new  HttpParams().set('clientId', '100');
+        return this.httpClient.get('GetApplications',  { params });
     }
 
     getProductivityAppsByClientId(clientId: number) {
-        const data = { 'clientId': clientId };
-        return this.httpClient.post('GetApplications', data);
+        const  params = new  HttpParams().set('clientId', '101');
+        return this.httpClient.get('GetApplications', { params });
     }
 }
