@@ -1,19 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import { ProductivityAppsService } from '../services/productivity-apps.service';
-import { CompCommunicationService } from '../shared/comp-communication.service';
+import { ProductivityAppsService } from '../../productivity-apps/productivity-apps.service';
+import { CompCommunicationService } from '../../shared/comp-communication.service';
 
-import { ProductivityAppsModel } from '../models/productivity-apps.model';
+import { ProductivityAppModel } from '../../productivity-apps/productivity-apps.model';
 
-import { MessageConstants } from '../shared/message-constants';
+import { MessageConstants } from '../../shared/message-constants';
 
 @Component({
     selector: 'app-clients-detail',
     templateUrl: 'clients-detail.component.html'
 })
 export class ClientsDetailComponent implements OnInit {
-    appsAssignedToClient: ProductivityAppsModel[] = [];
+    appsAssignedToClient: ProductivityAppModel[] = [];
     textNoMatchFound = MessageConstants.TextNoMatchFound;
     isAppsReceivedByServer = false;
     search: string;
@@ -31,7 +31,7 @@ export class ClientsDetailComponent implements OnInit {
             this.compCommunicationService.setOktaUserInfoAsTrue();
         }
         const clientId = this.activatedRoute.snapshot.params['clientId'];
-        this.productivityAppsService.getProductivityAppsByClientId(clientId).subscribe((pa: ProductivityAppsModel[])  => {
+        this.productivityAppsService.getProductivityAppsByClientId(clientId).subscribe((pa: ProductivityAppModel[])  => {
             this.appsAssignedToClient = pa;
             this.isAppsReceivedByServer = true;
             this.compCommunicationService.doSorting(0, this.appsAssignedToClient);

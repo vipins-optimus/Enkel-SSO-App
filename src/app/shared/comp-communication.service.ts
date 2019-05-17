@@ -30,11 +30,11 @@ export class CompCommunicationService {
     doSorting(sortBy: number, list: any) {
         if (sortBy === 0) {
             list = list.sort((a, b) => {
-                return a.Name.toLowerCase() > b.Name.toLowerCase() ? 1 : -1;
+                return a.name.toLowerCase() > b.name.toLowerCase() ? 1 : -1;
             });
         } else {
             list = list.sort((a, b) => {
-                return a.Name.toLowerCase() > b.Name.toLowerCase() ? -1 : 1;
+                return a.name.toLowerCase() > b.name.toLowerCase() ? -1 : 1;
             });
         }
     }

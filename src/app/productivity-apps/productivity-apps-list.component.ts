@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
-import { ProductivityAppsService } from '../services/productivity-apps.service';
+import { ProductivityAppsService } from './productivity-apps.service';
 import { CompCommunicationService } from '../shared/comp-communication.service';
 
-import { ProductivityAppsModel } from '../models/productivity-apps.model';
+import { ProductivityAppModel } from './productivity-apps.model';
 import { MessageConstants } from '../shared/message-constants';
 
 @Component({
@@ -13,7 +13,7 @@ import { MessageConstants } from '../shared/message-constants';
 export class ProductivityAppsListComponent implements OnInit {
     search: string;
     isAppsReceivedByServer = false;
-    productivityApps: ProductivityAppsModel[] = [];
+    productivityApps: ProductivityAppModel[] = [];
     textNoMatchFound = MessageConstants.TextNoMatchFound;
 
     constructor(private productivityAppsService: ProductivityAppsService,
@@ -28,7 +28,7 @@ export class ProductivityAppsListComponent implements OnInit {
             this.compCommunicationService.setOktaUserInfoAsTrue();
         }
         this.productivityAppsService.getProductivityApps()
-            .subscribe((pa: ProductivityAppsModel[]) => {
+            .subscribe((pa: ProductivityAppModel[]) => {
                 this.productivityApps = pa;
                 this.isAppsReceivedByServer = true;
                 this.compCommunicationService.doSorting(0, this.productivityApps);

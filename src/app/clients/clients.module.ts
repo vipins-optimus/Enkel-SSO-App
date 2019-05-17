@@ -6,8 +6,8 @@ import { OktaAuthGuard } from '@okta/okta-angular';
 
 import { SharedModule } from '../shared/shared.module';
 
-import { ClientsListComponent } from './clients-list.component';
-import { ClientsDetailComponent } from './clients-detail.component';
+import { ClientsListComponent } from './client-list/clients-list.component';
+import { ClientsDetailComponent } from './client-detail/clients-detail.component';
 
 @NgModule({
     imports: [

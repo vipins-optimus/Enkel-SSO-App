@@ -6,21 +6,21 @@
 </app-search-container>
 
 <div class="container">
-	<div class="text-center text-no-match-found" *ngIf="(clients | searchFilter : search : 'Name').length === 0 && isClientsReceivedByServer">
+	<div class="text-center text-no-match-found" *ngIf="(clients | searchFilter : search : 'name').length === 0 && isClientsReceivedByServer">
 		<h3>{{textNoMatchFound}}</h3>
 	</div>
 </div>
 
 <div class="container">
     <div class="row d-flex flex-row">
-        <div class="card card-1" *ngFor="let client of clients | searchFilter:search:'Name'; let rowIndex = index" (click)="clientDetail(client.ClientId)">
+        <div class="card card-1" *ngFor="let client of clients | searchFilter:search:'name'; let rowIndex = index" (click)="clientDetail(client.clientId)">
 			<div class="gallery-card">
 				<img 
 					class="card-img-top card-image align-self-center" 
-					[src]="client.Logo" 
+					[src]="client.logo" 
 					alt="image">
 			</div>
-			<p class="img-name text-center">{{ client.Name }}</p>
+			<p class="img-name text-center">{{ client.name }}</p>
         </div> 
     </div>
 </div>

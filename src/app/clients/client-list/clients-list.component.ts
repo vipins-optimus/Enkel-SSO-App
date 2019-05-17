@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { ClientsService } from '../services/clients.service';
+import { ClientsService } from '../clients.service';
 
-import { ClientsModel } from '../models/clients.model';
+import { ClientModel } from '../client.model';
 
-import { MessageConstants } from '../shared/message-constants';
-import { CompCommunicationService } from '../shared/comp-communication.service';
+import { MessageConstants } from '../../shared/message-constants';
+import { CompCommunicationService } from '../../shared/comp-communication.service';
 
 @Component({
     selector: 'app-clients-list',
@@ -15,7 +15,7 @@ import { CompCommunicationService } from '../shared/comp-communication.service';
 export class ClientsListComponent implements OnInit {
     search: string;
     isClientsReceivedByServer = false;
-    clients: ClientsModel[] = [];
+    clients: ClientModel[] = [];
     textNoMatchFound = MessageConstants.TextNoMatchFound;
 
     constructor(private clientsService: ClientsService,
@@ -33,7 +33,7 @@ export class ClientsListComponent implements OnInit {
         const oktaUserEmail = {
             Email: this.compCommunicationService.oktaUserInfo.email
         };
-        this.clientsService.getClients(oktaUserEmail).subscribe((clients: ClientsModel[])  => {
+        this.clientsService.getClients(oktaUserEmail).subscribe((clients: ClientModel[])  => {
             this.clients = clients;
             this.isClientsReceivedByServer = true;
             this.compCommunicationService.doSorting(0, this.clients);

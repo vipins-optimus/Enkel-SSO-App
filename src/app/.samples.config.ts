@@ -27,7 +27,7 @@
 
 
 export default {
-    apiUrl: 'http://172.16.2.185/EnkelSSO/Api/Application/',
+    apiUrl: ' http://172.16.2.185/EnkelAPI/Api/Application/',
     oidc: {
         clientId: '0oai2q8utNjgekb7Z356',
         issuer: 'https://enkel.okta.com',

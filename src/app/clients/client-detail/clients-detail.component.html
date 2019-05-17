@@ -7,22 +7,22 @@
         
 <div class="container">
     <div class="text-center text-no-match-found" 
-        *ngIf="(appsAssignedToClient | searchFilter : search : 'Name').length === 0 && isAppsReceivedByServer">
+        *ngIf="(appsAssignedToClient | searchFilter : search : 'name').length === 0 && isAppsReceivedByServer">
         <h3>{{textNoMatchFound}}</h3>
     </div>
 </div>
 
 <div class="container">
     <div class="row d-flex flex-row">
-        <div class="card card-1" *ngFor="let appAssignedToClient of appsAssignedToClient | searchFilter:search:'Name'; let rowIndex = index">
-            <a href="{{appAssignedToClient.URL}}" target="_blank" class="img-anchor">
+        <div class="card card-1" *ngFor="let appAssignedToClient of appsAssignedToClient | searchFilter:search:'name'; let rowIndex = index">
+            <a href="{{appAssignedToClient.url}}" target="_blank" class="img-anchor">
                 <div class="gallery-card">
                     <img 
                         class="card-img-top card-image align-self-center" 
-                        [src]="appAssignedToClient.Logo" 
+                        [src]="appAssignedToClient.logo" 
                         alt="image">
                 </div>
-                <p class="img-name text-center">{{ appAssignedToClient.Name }}</p>
+                <p class="img-name text-center">{{ appAssignedToClient.name }}</p>
             </a>
         </div> 
     </div>

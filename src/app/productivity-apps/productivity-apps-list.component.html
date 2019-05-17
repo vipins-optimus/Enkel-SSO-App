@@ -5,22 +5,22 @@
 </app-search-container>
 
 <div class="container">
-    <div class="text-center text-no-match-found" *ngIf="(productivityApps | searchFilter : search : 'Name').length === 0 && isAppsReceivedByServer">
+    <div class="text-center text-no-match-found" *ngIf="(productivityApps | searchFilter : search : 'name').length === 0 && isAppsReceivedByServer">
         <h3>{{textNoMatchFound}}</h3>
     </div>
 </div>
 
 <div class="container">
     <div class="row d-flex flex-row">
-        <div class="card card-1" *ngFor="let productivityApp of productivityApps | searchFilter:search:'Name'; let rowIndex = index">
-            <a href="{{productivityApp.URL}}" target="_blank" class="img-anchor">
+        <div class="card card-1" *ngFor="let productivityApp of productivityApps | searchFilter:search:'name'; let rowIndex = index">
+            <a href="{{productivityApp.url}}" target="_blank" class="img-anchor">
                 <div class="gallery-card">
                     <img 
                         class="card-img-top card-image align-self-center" 
-                        [src]="productivityApp.Logo" 
+                        [src]="productivityApp.logo" 
                         alt="image">
                 </div>
-            <p class="img-name text-center">{{ productivityApp.Name }}</p>
+            <p class="img-name text-center">{{ productivityApp.name }}</p>
         </a>
         </div> 
     </div>
