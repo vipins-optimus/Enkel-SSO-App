@@ -13,7 +13,7 @@ export class ProductivityAppsService {
 
 
     getProductivityApps(): Observable<ProductivityAppModel[]> {
-        const  params = new  HttpParams().set('clientId', '106');
+        const  params = new  HttpParams().set('clientId', '100');
         return this.httpClient.get<ProductivityAppModel[]>('GetApplications',  { params });
     }
 

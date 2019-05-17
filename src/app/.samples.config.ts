@@ -1,6 +1,6 @@
 
 // export default {
-//     apiUrl: 'http://172.16.2.27:1500/application/',
+//     apiUrl: 'http://enkelssoapi.azurewebsites.net/Api/Application/',
 //     oidc: {
 //         clientId: '0oai2q8utNjgekb7Z356',
 //         issuer: 'https://enkel.okta.com',

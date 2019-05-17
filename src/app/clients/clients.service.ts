@@ -14,7 +14,7 @@ export class ClientsService {
     }
 
     getClients(oktaUserEmail): Observable<ClientModel[]> {
-        const  params = new  HttpParams().set('userEmail', 'vipin.sharma@optimusinfo.com');
+        const  params = new  HttpParams().set('userEmail', oktaUserEmail.Email);
         return this.httpClient.get<ClientModel[]>('GetClients', { params } );
     }
 }
